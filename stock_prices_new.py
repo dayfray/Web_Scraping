@@ -19,7 +19,7 @@ while i < len(new_symbols_list):
     urls = "http://finance.yahoo.com/q?s=" + new_symbols_list[i]
     html_file = urllib.urlopen(urls)
     html_text = html_file.read()
-    regex = '<span id="yfs_l84_' + new_symbols_list[i] + '">(.+?)</span>'
+    regex = '<span id="yfs_l84_[^.]*">(.+?)</span>'
     pattern = re.compile(regex)
     price = re.findall(pattern, html_text)
 
